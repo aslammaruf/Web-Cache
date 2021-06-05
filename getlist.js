@@ -1,7 +1,8 @@
-const el = document.getElementById('api_list');
-const request = 'https://api.coingecko.com/api/v3/coins/list?include_platform=false';
+var el_coinlist = document.getElementById('api_list');
+// const request = 'https://api.coingecko.com/api/v3/coins/list?include_platform=false';
+var request = "/list.json";
 
-const Web_Caches = {
+var Web_Caches = {
     data: 'coin_list_v1'
 };
 
@@ -13,6 +14,7 @@ async function getCoinList(){
         console.log( request, response );
 
         if( response ){
+
             return response.json();
         } else {
             console.log( "code ran " );
@@ -50,7 +52,7 @@ function start() {
         newDiv.id = output[i].id;
         newDiv.classList.add("coin");
 
-        el.appendChild(newDiv);
+        el_coinlist.appendChild(newDiv);
     }
 
     console.log('after start');
